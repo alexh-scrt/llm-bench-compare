@@ -1,0 +1,724 @@
+{
+  "_metadata": {
+    "description": "Cost-per-million-token pricing for major LLM API providers and estimated self-hosted GPU compute costs. All prices are in USD. API prices are per 1 million tokens (input and output priced separately where applicable). Self-hosted costs are estimated hourly GPU rental rates from major cloud providers (Lambda Labs, Vast.ai, RunPod) as of early 2025.",
+    "currency": "USD",
+    "api_price_unit": "USD per 1,000,000 tokens",
+    "self_hosted_unit": "USD per hour (GPU rental)",
+    "note": "Prices are approximate and subject to change. Self-hosted costs assume full GPU utilization for the given model. Batch API discounts (typically 50%) are not reflected here. null indicates data not available or model not offered via that channel.",
+    "last_updated": "2025-01-01"
+  },
+  "api_providers": [
+    {
+      "model_id": "deepseek-v3",
+      "display_name": "DeepSeek V3",
+      "providers": [
+        {
+          "provider": "DeepSeek Platform",
+          "provider_url": "https://platform.deepseek.com",
+          "input_per_1m": 0.27,
+          "output_per_1m": 1.10,
+          "notes": "Cache hit input: $0.07/1M tokens"
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 1.25,
+          "output_per_1m": 1.25,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "deepseek-r1",
+      "display_name": "DeepSeek R1",
+      "providers": [
+        {
+          "provider": "DeepSeek Platform",
+          "provider_url": "https://platform.deepseek.com",
+          "input_per_1m": 0.55,
+          "output_per_1m": 2.19,
+          "notes": "Cache hit input: $0.14/1M tokens"
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 3.00,
+          "output_per_1m": 7.00,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 3.00,
+          "output_per_1m": 8.00,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "deepseek-v2",
+      "display_name": "DeepSeek V2",
+      "providers": [
+        {
+          "provider": "DeepSeek Platform",
+          "provider_url": "https://platform.deepseek.com",
+          "input_per_1m": 0.14,
+          "output_per_1m": 0.28,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "kimi-k1.5",
+      "display_name": "Kimi k1.5",
+      "providers": [
+        {
+          "provider": "Moonshot AI Platform",
+          "provider_url": "https://platform.moonshot.cn",
+          "input_per_1m": 2.00,
+          "output_per_1m": 6.00,
+          "notes": "Pricing approximate; long-thinking mode may be billed differently"
+        }
+      ]
+    },
+    {
+      "model_id": "llama-3.3-70b-instruct",
+      "display_name": "Llama 3.3 70B Instruct",
+      "providers": [
+        {
+          "provider": "Groq",
+          "provider_url": "https://groq.com",
+          "input_per_1m": 0.59,
+          "output_per_1m": 0.79,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.88,
+          "output_per_1m": 0.88,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 0.90,
+          "output_per_1m": 0.90,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "llama-3.1-70b-instruct",
+      "display_name": "Llama 3.1 70B Instruct",
+      "providers": [
+        {
+          "provider": "Groq",
+          "provider_url": "https://groq.com",
+          "input_per_1m": 0.59,
+          "output_per_1m": 0.79,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.88,
+          "output_per_1m": 0.88,
+          "notes": null
+        },
+        {
+          "provider": "AWS Bedrock",
+          "provider_url": "https://aws.amazon.com/bedrock",
+          "input_per_1m": 1.99,
+          "output_per_1m": 2.99,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "llama-3.1-8b-instruct",
+      "display_name": "Llama 3.1 8B Instruct",
+      "providers": [
+        {
+          "provider": "Groq",
+          "provider_url": "https://groq.com",
+          "input_per_1m": 0.05,
+          "output_per_1m": 0.08,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.18,
+          "output_per_1m": 0.18,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.20,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "llama-3.1-405b-instruct",
+      "display_name": "Llama 3.1 405B Instruct",
+      "providers": [
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 3.50,
+          "output_per_1m": 3.50,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 3.00,
+          "output_per_1m": 3.00,
+          "notes": null
+        },
+        {
+          "provider": "AWS Bedrock",
+          "provider_url": "https://aws.amazon.com/bedrock",
+          "input_per_1m": 5.32,
+          "output_per_1m": 16.00,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "mistral-large-2",
+      "display_name": "Mistral Large 2",
+      "providers": [
+        {
+          "provider": "Mistral AI Platform",
+          "provider_url": "https://mistral.ai",
+          "input_per_1m": 2.00,
+          "output_per_1m": 6.00,
+          "notes": null
+        },
+        {
+          "provider": "AWS Bedrock",
+          "provider_url": "https://aws.amazon.com/bedrock",
+          "input_per_1m": 3.00,
+          "output_per_1m": 9.00,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "mistral-nemo-12b",
+      "display_name": "Mistral NeMo 12B",
+      "providers": [
+        {
+          "provider": "Mistral AI Platform",
+          "provider_url": "https://mistral.ai",
+          "input_per_1m": 0.15,
+          "output_per_1m": 0.15,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.30,
+          "output_per_1m": 0.30,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "mistral-7b-v0.3",
+      "display_name": "Mistral 7B v0.3",
+      "providers": [
+        {
+          "provider": "Mistral AI Platform",
+          "provider_url": "https://mistral.ai",
+          "input_per_1m": 0.25,
+          "output_per_1m": 0.25,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.20,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "mixtral-8x22b-instruct",
+      "display_name": "Mixtral 8x22B Instruct",
+      "providers": [
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 1.20,
+          "output_per_1m": 1.20,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 1.20,
+          "output_per_1m": 1.20,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-72b-instruct",
+      "display_name": "Qwen2.5 72B Instruct",
+      "providers": [
+        {
+          "provider": "Alibaba Cloud (DashScope)",
+          "provider_url": "https://dashscope.aliyuncs.com",
+          "input_per_1m": 0.56,
+          "output_per_1m": 2.24,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 1.20,
+          "output_per_1m": 1.20,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 0.90,
+          "output_per_1m": 0.90,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-32b-instruct",
+      "display_name": "Qwen2.5 32B Instruct",
+      "providers": [
+        {
+          "provider": "Alibaba Cloud (DashScope)",
+          "provider_url": "https://dashscope.aliyuncs.com",
+          "input_per_1m": 0.34,
+          "output_per_1m": 1.35,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.80,
+          "output_per_1m": 0.80,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-14b-instruct",
+      "display_name": "Qwen2.5 14B Instruct",
+      "providers": [
+        {
+          "provider": "Alibaba Cloud (DashScope)",
+          "provider_url": "https://dashscope.aliyuncs.com",
+          "input_per_1m": 0.22,
+          "output_per_1m": 0.89,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-7b-instruct",
+      "display_name": "Qwen2.5 7B Instruct",
+      "providers": [
+        {
+          "provider": "Alibaba Cloud (DashScope)",
+          "provider_url": "https://dashscope.aliyuncs.com",
+          "input_per_1m": 0.11,
+          "output_per_1m": 0.45,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.30,
+          "output_per_1m": 0.30,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-coder-32b-instruct",
+      "display_name": "Qwen2.5 Coder 32B Instruct",
+      "providers": [
+        {
+          "provider": "Alibaba Cloud (DashScope)",
+          "provider_url": "https://dashscope.aliyuncs.com",
+          "input_per_1m": 0.34,
+          "output_per_1m": 1.35,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "phi-3.5-mini-instruct",
+      "display_name": "Phi-3.5 Mini Instruct",
+      "providers": [
+        {
+          "provider": "Azure AI",
+          "provider_url": "https://azure.microsoft.com/en-us/products/ai-services",
+          "input_per_1m": 0.13,
+          "output_per_1m": 0.50,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.20,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "phi-3-medium-128k-instruct",
+      "display_name": "Phi-3 Medium 14B Instruct",
+      "providers": [
+        {
+          "provider": "Azure AI",
+          "provider_url": "https://azure.microsoft.com/en-us/products/ai-services",
+          "input_per_1m": 0.17,
+          "output_per_1m": 0.68,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "gemma-2-27b-it",
+      "display_name": "Gemma 2 27B IT",
+      "providers": [
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.80,
+          "output_per_1m": 0.80,
+          "notes": null
+        },
+        {
+          "provider": "Fireworks AI",
+          "provider_url": "https://fireworks.ai",
+          "input_per_1m": 0.90,
+          "output_per_1m": 0.90,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "gemma-2-9b-it",
+      "display_name": "Gemma 2 9B IT",
+      "providers": [
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.30,
+          "output_per_1m": 0.30,
+          "notes": null
+        },
+        {
+          "provider": "Groq",
+          "provider_url": "https://groq.com",
+          "input_per_1m": 0.20,
+          "output_per_1m": 0.20,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "command-r-plus",
+      "display_name": "Command R+ (104B)",
+      "providers": [
+        {
+          "provider": "Cohere Platform",
+          "provider_url": "https://cohere.com",
+          "input_per_1m": 2.50,
+          "output_per_1m": 10.00,
+          "notes": null
+        },
+        {
+          "provider": "AWS Bedrock",
+          "provider_url": "https://aws.amazon.com/bedrock",
+          "input_per_1m": 3.00,
+          "output_per_1m": 15.00,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "internlm2.5-20b-chat",
+      "display_name": "InternLM2.5 20B Chat",
+      "providers": [
+        {
+          "provider": "Silicon Flow",
+          "provider_url": "https://siliconflow.cn",
+          "input_per_1m": 0.60,
+          "output_per_1m": 0.60,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "model_id": "yi-1.5-34b-chat",
+      "display_name": "Yi-1.5 34B Chat",
+      "providers": [
+        {
+          "provider": "01.AI Platform",
+          "provider_url": "https://platform.01.ai",
+          "input_per_1m": 0.30,
+          "output_per_1m": 0.30,
+          "notes": null
+        },
+        {
+          "provider": "Together AI",
+          "provider_url": "https://www.together.ai",
+          "input_per_1m": 0.80,
+          "output_per_1m": 0.80,
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "self_hosted": [
+    {
+      "model_id": "deepseek-v3",
+      "display_name": "DeepSeek V3",
+      "recommended_gpu_setup": "8× H100 80GB SXM or 8× A100 80GB",
+      "min_vram_gb": 640,
+      "estimated_hourly_cost_usd": 22.40,
+      "cloud_provider_reference": "Lambda Labs 8×H100 @ $28.00/hr or Vast.ai 8×H100 @ ~$22.40/hr",
+      "fp_precision": "FP8/BF16 MoE",
+      "throughput_tokens_per_sec_approx": 2500
+    },
+    {
+      "model_id": "deepseek-r1",
+      "display_name": "DeepSeek R1",
+      "recommended_gpu_setup": "8× H100 80GB SXM",
+      "min_vram_gb": 640,
+      "estimated_hourly_cost_usd": 28.00,
+      "cloud_provider_reference": "Lambda Labs 8×H100 @ $28.00/hr",
+      "fp_precision": "BF16 MoE",
+      "throughput_tokens_per_sec_approx": 2000
+    },
+    {
+      "model_id": "deepseek-v2",
+      "display_name": "DeepSeek V2",
+      "recommended_gpu_setup": "4× A100 80GB or 4× H100 80GB",
+      "min_vram_gb": 320,
+      "estimated_hourly_cost_usd": 8.00,
+      "cloud_provider_reference": "Lambda Labs 4×A100 @ $8.00/hr",
+      "fp_precision": "BF16 MoE",
+      "throughput_tokens_per_sec_approx": 3000
+    },
+    {
+      "model_id": "llama-3.3-70b-instruct",
+      "display_name": "Llama 3.3 70B Instruct",
+      "recommended_gpu_setup": "2× A100 80GB or 1× H100 80GB",
+      "min_vram_gb": 140,
+      "estimated_hourly_cost_usd": 2.80,
+      "cloud_provider_reference": "Vast.ai 2×A100 @ ~$2.80/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 800
+    },
+    {
+      "model_id": "llama-3.1-70b-instruct",
+      "display_name": "Llama 3.1 70B Instruct",
+      "recommended_gpu_setup": "2× A100 80GB or 1× H100 80GB",
+      "min_vram_gb": 140,
+      "estimated_hourly_cost_usd": 2.80,
+      "cloud_provider_reference": "Vast.ai 2×A100 @ ~$2.80/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 800
+    },
+    {
+      "model_id": "llama-3.1-8b-instruct",
+      "display_name": "Llama 3.1 8B Instruct",
+      "recommended_gpu_setup": "1× RTX 4090 24GB or 1× A10G 24GB",
+      "min_vram_gb": 16,
+      "estimated_hourly_cost_usd": 0.50,
+      "cloud_provider_reference": "Vast.ai RTX 4090 @ ~$0.50/hr or RunPod A10G @ $0.44/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 2500
+    },
+    {
+      "model_id": "llama-3.1-405b-instruct",
+      "display_name": "Llama 3.1 405B Instruct",
+      "recommended_gpu_setup": "8× H100 80GB SXM",
+      "min_vram_gb": 800,
+      "estimated_hourly_cost_usd": 28.00,
+      "cloud_provider_reference": "Lambda Labs 8×H100 @ $28.00/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 400
+    },
+    {
+      "model_id": "mistral-large-2",
+      "display_name": "Mistral Large 2 (123B)",
+      "recommended_gpu_setup": "2× H100 80GB or 4× A100 40GB",
+      "min_vram_gb": 246,
+      "estimated_hourly_cost_usd": 7.00,
+      "cloud_provider_reference": "Vast.ai 2×H100 @ ~$7.00/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 500
+    },
+    {
+      "model_id": "mistral-nemo-12b",
+      "display_name": "Mistral NeMo 12B",
+      "recommended_gpu_setup": "1× RTX 4090 24GB or 1× A10G 24GB",
+      "min_vram_gb": 24,
+      "estimated_hourly_cost_usd": 0.50,
+      "cloud_provider_reference": "Vast.ai RTX 4090 @ ~$0.50/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1500
+    },
+    {
+      "model_id": "mistral-7b-v0.3",
+      "display_name": "Mistral 7B v0.3",
+      "recommended_gpu_setup": "1× RTX 3090 24GB or 1× RTX 4090 24GB",
+      "min_vram_gb": 14,
+      "estimated_hourly_cost_usd": 0.35,
+      "cloud_provider_reference": "Vast.ai RTX 3090 @ ~$0.35/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 3000
+    },
+    {
+      "model_id": "mixtral-8x22b-instruct",
+      "display_name": "Mixtral 8x22B Instruct",
+      "recommended_gpu_setup": "4× A100 80GB or 4× H100 80GB",
+      "min_vram_gb": 280,
+      "estimated_hourly_cost_usd": 8.00,
+      "cloud_provider_reference": "Lambda Labs 4×A100 @ $8.00/hr",
+      "fp_precision": "BF16 MoE",
+      "throughput_tokens_per_sec_approx": 1800
+    },
+    {
+      "model_id": "qwen2.5-72b-instruct",
+      "display_name": "Qwen2.5 72B Instruct",
+      "recommended_gpu_setup": "2× A100 80GB or 1× H100 80GB",
+      "min_vram_gb": 144,
+      "estimated_hourly_cost_usd": 2.80,
+      "cloud_provider_reference": "Vast.ai 2×A100 @ ~$2.80/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 700
+    },
+    {
+      "model_id": "qwen2.5-32b-instruct",
+      "display_name": "Qwen2.5 32B Instruct",
+      "recommended_gpu_setup": "2× RTX 4090 24GB or 1× A100 40GB",
+      "min_vram_gb": 64,
+      "estimated_hourly_cost_usd": 1.00,
+      "cloud_provider_reference": "Vast.ai 2×RTX4090 @ ~$1.00/hr or RunPod A100 40GB @ $1.19/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1200
+    },
+    {
+      "model_id": "qwen2.5-14b-instruct",
+      "display_name": "Qwen2.5 14B Instruct",
+      "recommended_gpu_setup": "1× RTX 4090 24GB (Q4) or 1× A10G 24GB",
+      "min_vram_gb": 28,
+      "estimated_hourly_cost_usd": 0.55,
+      "cloud_provider_reference": "Vast.ai A10G @ ~$0.55/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1800
+    },
+    {
+      "model_id": "qwen2.5-7b-instruct",
+      "display_name": "Qwen2.5 7B Instruct",
+      "recommended_gpu_setup": "1× RTX 3090 24GB or 1× RTX 4090 24GB",
+      "min_vram_gb": 16,
+      "estimated_hourly_cost_usd": 0.35,
+      "cloud_provider_reference": "Vast.ai RTX 3090 @ ~$0.35/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 3500
+    },
+    {
+      "model_id": "qwen2.5-coder-32b-instruct",
+      "display_name": "Qwen2.5 Coder 32B Instruct",
+      "recommended_gpu_setup": "2× RTX 4090 24GB or 1× A100 40GB",
+      "min_vram_gb": 64,
+      "estimated_hourly_cost_usd": 1.00,
+      "cloud_provider_reference": "Vast.ai 2×RTX4090 @ ~$1.00/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1200
+    },
+    {
+      "model_id": "phi-3.5-mini-instruct",
+      "display_name": "Phi-3.5 Mini Instruct",
+      "recommended_gpu_setup": "1× RTX 3060 12GB or 1× RTX 4070 12GB",
+      "min_vram_gb": 8,
+      "estimated_hourly_cost_usd": 0.15,
+      "cloud_provider_reference": "Vast.ai RTX 3060 @ ~$0.15/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 4000
+    },
+    {
+      "model_id": "phi-3-medium-128k-instruct",
+      "display_name": "Phi-3 Medium 14B Instruct",
+      "recommended_gpu_setup": "1× A10G 24GB or 1× RTX 4090 24GB",
+      "min_vram_gb": 28,
+      "estimated_hourly_cost_usd": 0.55,
+      "cloud_provider_reference": "Vast.ai A10G @ ~$0.55/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1500
+    },
+    {
+      "model_id": "gemma-2-27b-it",
+      "display_name": "Gemma 2 27B IT",
+      "recommended_gpu_setup": "2× RTX 4090 24GB or 1× A100 40GB",
+      "min_vram_gb": 54,
+      "estimated_hourly_cost_usd": 1.00,
+      "cloud_provider_reference": "RunPod A100 40GB @ $1.19/hr or Vast.ai 2×RTX4090 @ ~$1.00/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 900
+    },
+    {
+      "model_id": "gemma-2-9b-it",
+      "display_name": "Gemma 2 9B IT",
+      "recommended_gpu_setup": "1× RTX 4090 24GB or 1× A10G 24GB",
+      "min_vram_gb": 18,
+      "estimated_hourly_cost_usd": 0.50,
+      "cloud_provider_reference": "Vast.ai RTX 4090 @ ~$0.50/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 2200
+    },
+    {
+      "model_id": "command-r-plus",
+      "display_name": "Command R+ (104B)",
+      "recommended_gpu_setup": "2× A100 80GB or 2× H100 80GB",
+      "min_vram_gb": 208,
+      "estimated_hourly_cost_usd": 5.60,
+      "cloud_provider_reference": "Lambda Labs 2×A100 @ ~$5.60/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 600
+    },
+    {
+      "model_id": "internlm2.5-20b-chat",
+      "display_name": "InternLM2.5 20B Chat",
+      "recommended_gpu_setup": "1× A100 40GB or 2× RTX 4090 24GB",
+      "min_vram_gb": 40,
+      "estimated_hourly_cost_usd": 0.75,
+      "cloud_provider_reference": "RunPod A100 40GB @ $1.19/hr or Vast.ai 2×RTX4090 @ ~$1.00/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 1100
+    },
+    {
+      "model_id": "yi-1.5-34b-chat",
+      "display_name": "Yi-1.5 34B Chat",
+      "recommended_gpu_setup": "2× RTX 4090 24GB or 1× A100 40GB",
+      "min_vram_gb": 68,
+      "estimated_hourly_cost_usd": 1.00,
+      "cloud_provider_reference": "Vast.ai 2×RTX4090 @ ~$1.00/hr or RunPod A100 40GB @ $1.19/hr",
+      "fp_precision": "BF16",
+      "throughput_tokens_per_sec_approx": 900
+    }
+  ]
+}

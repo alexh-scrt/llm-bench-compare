@@ -1,0 +1,530 @@
+{
+  "_metadata": {
+    "description": "Curated benchmark scores for major open-source and API-accessible LLMs. Scores are expressed as percentages (0-100) where available. null indicates the benchmark was not reported by the model authors or a reputable third-party evaluation.",
+    "benchmarks": {
+      "mmlu": "Massive Multitask Language Understanding — 5-shot accuracy across 57 academic subjects (0-100%)",
+      "humaneval": "HumanEval pass@1 — Python code generation correctness (0-100%)",
+      "math": "MATH dataset — competition-level mathematics accuracy (0-100%)",
+      "gsm8k": "GSM8K — grade-school math word problems, 8-shot chain-of-thought (0-100%)",
+      "mbpp": "Mostly Basic Python Problems pass@1 — basic Python coding tasks (0-100%)"
+    },
+    "task_categories": {
+      "reasoning": "General language understanding, world knowledge, commonsense and multi-step reasoning",
+      "coding": "Code generation, completion, and program synthesis",
+      "math": "Mathematical reasoning and problem solving"
+    },
+    "sources": [
+      "Official model technical reports and papers",
+      "Papers With Code leaderboards",
+      "Open LLM Leaderboard (Hugging Face)",
+      "lmsys/chatbot-arena-leaderboard"
+    ],
+    "last_updated": "2025-01-01"
+  },
+  "models": [
+    {
+      "model_id": "deepseek-v3",
+      "display_name": "DeepSeek V3",
+      "family": "DeepSeek",
+      "version": "V3",
+      "parameter_size_b": 671,
+      "parameter_size_bucket": "35B+",
+      "architecture": "MoE (Mixture of Experts)",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-12",
+      "benchmarks": {
+        "mmlu": 88.5,
+        "humaneval": 82.6,
+        "math": 61.6,
+        "gsm8k": 89.3,
+        "mbpp": 82.7
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "deepseek-v2",
+      "display_name": "DeepSeek V2",
+      "family": "DeepSeek",
+      "version": "V2",
+      "parameter_size_b": 236,
+      "parameter_size_bucket": "35B+",
+      "architecture": "MoE (Mixture of Experts)",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-05",
+      "benchmarks": {
+        "mmlu": 78.5,
+        "humaneval": 76.8,
+        "math": 43.6,
+        "gsm8k": 79.2,
+        "mbpp": 72.3
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "deepseek-r1",
+      "display_name": "DeepSeek R1",
+      "family": "DeepSeek",
+      "version": "R1",
+      "parameter_size_b": 671,
+      "parameter_size_bucket": "35B+",
+      "architecture": "MoE (Mixture of Experts)",
+      "context_length_k": 128,
+      "license": "MIT",
+      "open_weights": true,
+      "release_date": "2025-01",
+      "benchmarks": {
+        "mmlu": 90.8,
+        "humaneval": 92.3,
+        "math": 79.8,
+        "gsm8k": 95.9,
+        "mbpp": 87.6
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "kimi-k1.5",
+      "display_name": "Kimi k1.5",
+      "family": "Kimi",
+      "version": "k1.5",
+      "parameter_size_b": null,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Transformer (proprietary)",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": false,
+      "release_date": "2025-01",
+      "benchmarks": {
+        "mmlu": 88.2,
+        "humaneval": 88.0,
+        "math": 77.5,
+        "gsm8k": 94.6,
+        "mbpp": 83.1
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "llama-3.3-70b-instruct",
+      "display_name": "Llama 3.3 70B Instruct",
+      "family": "Llama",
+      "version": "3.3",
+      "parameter_size_b": 70,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-12",
+      "benchmarks": {
+        "mmlu": 86.0,
+        "humaneval": 88.4,
+        "math": 77.0,
+        "gsm8k": 93.0,
+        "mbpp": 82.0
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "llama-3.1-70b-instruct",
+      "display_name": "Llama 3.1 70B Instruct",
+      "family": "Llama",
+      "version": "3.1",
+      "parameter_size_b": 70,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-07",
+      "benchmarks": {
+        "mmlu": 83.6,
+        "humaneval": 80.5,
+        "math": 68.0,
+        "gsm8k": 95.1,
+        "mbpp": 74.4
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "llama-3.1-8b-instruct",
+      "display_name": "Llama 3.1 8B Instruct",
+      "family": "Llama",
+      "version": "3.1",
+      "parameter_size_b": 8,
+      "parameter_size_bucket": "≤7B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-07",
+      "benchmarks": {
+        "mmlu": 68.4,
+        "humaneval": 72.6,
+        "math": 47.6,
+        "gsm8k": 84.5,
+        "mbpp": 65.3
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "llama-3.1-405b-instruct",
+      "display_name": "Llama 3.1 405B Instruct",
+      "family": "Llama",
+      "version": "3.1",
+      "parameter_size_b": 405,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-07",
+      "benchmarks": {
+        "mmlu": 87.3,
+        "humaneval": 89.0,
+        "math": 73.8,
+        "gsm8k": 96.8,
+        "mbpp": 79.5
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "mistral-large-2",
+      "display_name": "Mistral Large 2 (123B)",
+      "family": "Mistral",
+      "version": "Large 2",
+      "parameter_size_b": 123,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-07",
+      "benchmarks": {
+        "mmlu": 84.0,
+        "humaneval": 92.0,
+        "math": 69.9,
+        "gsm8k": 93.0,
+        "mbpp": 82.5
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "mistral-nemo-12b",
+      "display_name": "Mistral NeMo 12B",
+      "family": "Mistral",
+      "version": "NeMo",
+      "parameter_size_b": 12,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-07",
+      "benchmarks": {
+        "mmlu": 68.0,
+        "humaneval": 68.0,
+        "math": 40.2,
+        "gsm8k": 79.5,
+        "mbpp": 60.1
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "mistral-7b-v0.3",
+      "display_name": "Mistral 7B v0.3",
+      "family": "Mistral",
+      "version": "7B v0.3",
+      "parameter_size_b": 7,
+      "parameter_size_bucket": "≤7B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 32,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-05",
+      "benchmarks": {
+        "mmlu": 62.5,
+        "humaneval": 35.1,
+        "math": 13.1,
+        "gsm8k": 52.2,
+        "mbpp": 53.8
+      },
+      "task_categories": ["reasoning", "coding"]
+    },
+    {
+      "model_id": "mixtral-8x22b-instruct",
+      "display_name": "Mixtral 8x22B Instruct",
+      "family": "Mistral",
+      "version": "8x22B",
+      "parameter_size_b": 141,
+      "parameter_size_bucket": "35B+",
+      "architecture": "MoE (Mixture of Experts)",
+      "context_length_k": 64,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-04",
+      "benchmarks": {
+        "mmlu": 77.8,
+        "humaneval": 75.0,
+        "math": 49.8,
+        "gsm8k": 88.2,
+        "mbpp": 71.7
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "qwen2.5-72b-instruct",
+      "display_name": "Qwen2.5 72B Instruct",
+      "family": "Qwen",
+      "version": "2.5",
+      "parameter_size_b": 72,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-09",
+      "benchmarks": {
+        "mmlu": 86.1,
+        "humaneval": 86.6,
+        "math": 83.1,
+        "gsm8k": 95.7,
+        "mbpp": 88.2
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "qwen2.5-32b-instruct",
+      "display_name": "Qwen2.5 32B Instruct",
+      "family": "Qwen",
+      "version": "2.5",
+      "parameter_size_b": 32,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-09",
+      "benchmarks": {
+        "mmlu": 83.9,
+        "humaneval": 85.3,
+        "math": 79.5,
+        "gsm8k": 93.9,
+        "mbpp": 84.9
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "qwen2.5-14b-instruct",
+      "display_name": "Qwen2.5 14B Instruct",
+      "family": "Qwen",
+      "version": "2.5",
+      "parameter_size_b": 14,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-09",
+      "benchmarks": {
+        "mmlu": 79.7,
+        "humaneval": 78.0,
+        "math": 71.4,
+        "gsm8k": 91.6,
+        "mbpp": 78.6
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "qwen2.5-7b-instruct",
+      "display_name": "Qwen2.5 7B Instruct",
+      "family": "Qwen",
+      "version": "2.5",
+      "parameter_size_b": 7,
+      "parameter_size_bucket": "≤7B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-09",
+      "benchmarks": {
+        "mmlu": 74.2,
+        "humaneval": 72.0,
+        "math": 62.9,
+        "gsm8k": 91.6,
+        "mbpp": 74.9
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "qwen2.5-coder-32b-instruct",
+      "display_name": "Qwen2.5 Coder 32B Instruct",
+      "family": "Qwen",
+      "version": "2.5 Coder",
+      "parameter_size_b": 32,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-11",
+      "benchmarks": {
+        "mmlu": 83.0,
+        "humaneval": 92.7,
+        "math": 72.0,
+        "gsm8k": 89.0,
+        "mbpp": 90.2
+      },
+      "task_categories": ["coding", "reasoning"]
+    },
+    {
+      "model_id": "phi-3.5-mini-instruct",
+      "display_name": "Phi-3.5 Mini Instruct (3.8B)",
+      "family": "Phi",
+      "version": "3.5 Mini",
+      "parameter_size_b": 3.8,
+      "parameter_size_bucket": "≤7B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "MIT",
+      "open_weights": true,
+      "release_date": "2024-08",
+      "benchmarks": {
+        "mmlu": 69.0,
+        "humaneval": 62.8,
+        "math": 46.4,
+        "gsm8k": 86.4,
+        "mbpp": 59.6
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "phi-3-medium-128k-instruct",
+      "display_name": "Phi-3 Medium 14B Instruct",
+      "family": "Phi",
+      "version": "3 Medium",
+      "parameter_size_b": 14,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "MIT",
+      "open_weights": true,
+      "release_date": "2024-05",
+      "benchmarks": {
+        "mmlu": 78.0,
+        "humaneval": 70.2,
+        "math": 53.6,
+        "gsm8k": 91.0,
+        "mbpp": 65.7
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "gemma-2-27b-it",
+      "display_name": "Gemma 2 27B IT",
+      "family": "Gemma",
+      "version": "2",
+      "parameter_size_b": 27,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 8,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-06",
+      "benchmarks": {
+        "mmlu": 75.2,
+        "humaneval": 74.4,
+        "math": 57.2,
+        "gsm8k": 90.1,
+        "mbpp": 71.3
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "gemma-2-9b-it",
+      "display_name": "Gemma 2 9B IT",
+      "family": "Gemma",
+      "version": "2",
+      "parameter_size_b": 9,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 8,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-06",
+      "benchmarks": {
+        "mmlu": 71.3,
+        "humaneval": 65.6,
+        "math": 44.3,
+        "gsm8k": 87.3,
+        "mbpp": 63.8
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "command-r-plus",
+      "display_name": "Command R+ (104B)",
+      "family": "Command",
+      "version": "R+",
+      "parameter_size_b": 104,
+      "parameter_size_bucket": "35B+",
+      "architecture": "Dense Transformer",
+      "context_length_k": 128,
+      "license": "custom/commercial",
+      "open_weights": true,
+      "release_date": "2024-04",
+      "benchmarks": {
+        "mmlu": 75.7,
+        "humaneval": 69.4,
+        "math": 41.0,
+        "gsm8k": 78.9,
+        "mbpp": 62.5
+      },
+      "task_categories": ["reasoning", "coding"]
+    },
+    {
+      "model_id": "internlm2.5-20b-chat",
+      "display_name": "InternLM2.5 20B Chat",
+      "family": "InternLM",
+      "version": "2.5",
+      "parameter_size_b": 20,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 32,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-08",
+      "benchmarks": {
+        "mmlu": 68.6,
+        "humaneval": 77.8,
+        "math": 62.0,
+        "gsm8k": 84.5,
+        "mbpp": 71.2
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    },
+    {
+      "model_id": "yi-1.5-34b-chat",
+      "display_name": "Yi-1.5 34B Chat",
+      "family": "Yi",
+      "version": "1.5",
+      "parameter_size_b": 34,
+      "parameter_size_bucket": "8–34B",
+      "architecture": "Dense Transformer",
+      "context_length_k": 4,
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "release_date": "2024-05",
+      "benchmarks": {
+        "mmlu": 76.8,
+        "humaneval": 75.2,
+        "math": 50.4,
+        "gsm8k": 82.8,
+        "mbpp": 70.4
+      },
+      "task_categories": ["reasoning", "coding", "math"]
+    }
+  ]
+}
