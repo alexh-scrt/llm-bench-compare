@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "llm_bench_compare"
+version = "0.1.0"
+description = "A lightweight web application that aggregates and visualizes benchmark scores for major open-source LLMs, with cost-per-token overlays for capability-vs-cost trade-off analysis."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "LLM Bench Compare Contributors" }
+]
+keywords = ["llm", "benchmarks", "comparison", "flask", "visualization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Flask",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+]
+dependencies = [
+    "flask>=3.0.0",
+    "pandas>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-flask>=1.3.0",
+]
+
+[project.scripts]
+llm-bench-compare = "llm_bench_compare:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["llm_bench_compare*"]
+
+[tool.setuptools.package-data]
+"llm_bench_compare" = [
+    "data/*.json",
+    "templates/*.html",
+    "static/*.js",
+    "static/*.css",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+python_classes = ["Test*"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
