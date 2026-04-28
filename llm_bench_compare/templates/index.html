@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Benchmark Compare</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- ================================================================
+       HEADER
+  ================================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-icon">&#9883;</span>
+        <h1>LLM Benchmark Compare</h1>
+      </div>
+      <p class="header-subtitle">
+        Compare benchmark scores &amp; costs across 20+ open-source LLMs
+      </p>
+    </div>
+  </header>
+
+  <main class="main-layout">
+    <!-- ================================================================
+         FILTER PANEL
+    ================================================================ -->
+    <aside class="filter-panel" id="filterPanel">
+      <div class="filter-panel-header">
+        <h2>Filters</h2>
+        <button class="btn btn-ghost btn-sm" id="clearFiltersBtn" title="Clear all filters">
+          &#10005; Clear
+        </button>
+      </div>
+
+      <!-- Task Category -->
+      <section class="filter-section">
+        <h3 class="filter-section-title">Task Category</h3>
+        <div class="filter-group" id="categoryFilters">
+          {% for cat in filter_options.task_categories %}
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="{{ cat }}" />
+            <span>{{ cat | capitalize }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Parameter Size -->
+      <section class="filter-section">
+        <h3 class="filter-section-title">Parameter Size</h3>
+        <div class="filter-group" id="sizeFilters">
+          {% for bucket in filter_options.size_buckets %}
+          <label class="filter-chip">
+            <input type="checkbox" name="size" value="{{ bucket }}" />
+            <span>{{ bucket }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- License -->
+      <section class="filter-section">
+        <h3 class="filter-section-title">License</h3>
+        <div class="filter-group" id="licenseFilters">
+          {% for lic in filter_options.licenses %}
+          <label class="filter-chip">
+            <input type="checkbox" name="license" value="{{ lic }}" />
+            <span>{{ lic }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Model Family -->
+      <section class="filter-section">
+        <h3 class="filter-section-title">Model Family</h3>
+        <div class="filter-group" id="familyFilters">
+          {% for fam in filter_options.families %}
+          <label class="filter-chip">
+            <input type="checkbox" name="family" value="{{ fam }}" />
+            <span>{{ fam }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Open Weights -->
+      <section class="filter-section">
+        <h3 class="filter-section-title">Open Weights</h3>
+        <div class="filter-group">
+          <label class="filter-chip">
+            <input type="checkbox" name="open_weights" id="openWeightsFilter" value="true" />
+            <span>Open weights only</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Radar Compare -->
+      <section class="filter-section compare-section">
+        <h3 class="filter-section-title">&#9670; Radar Compare</h3>
+        <p class="compare-help">Check up to 4 models in the table to compare them visually.</p>
+        <button class="btn btn-primary btn-block" id="showChartBtn" disabled>
+          Show Radar Chart
+        </button>
+        <div class="compare-selection" id="compareSelection"></div>
+      </section>
+    </aside>
+
+    <!-- ================================================================
+         CONTENT AREA
+    ================================================================ -->
+    <div class="content-area">
+      <!-- Toolbar -->
+      <div class="table-toolbar">
+        <div class="toolbar-left">
+          <span class="model-count" id="modelCount">
+            Showing <strong id="visibleCount">{{ total_model_count }}</strong>
+            of {{ total_model_count }} models
+          </span>
+        </div>
+        <div class="toolbar-right">
+          <label class="sr-only" for="searchInput">Search models</label>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="&#128269; Search models…"
+            autocomplete="off"
+          />
+          <div class="cost-overlay-toggle">
+            <label class="toggle-label">
+              <input type="checkbox" id="showCostOverlay" checked />
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              <span>Cost overlay</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading indicator -->
+      <div class="loading-indicator hidden" id="loadingIndicator">
+        <span class="spinner"></span> Loading…
+      </div>
+
+      <!-- Main comparison table -->
+      <div class="table-wrapper">
+        <table class="bench-table" id="benchTable">
+          <thead>
+            <tr>
+              <th class="col-compare">
+                <input type="checkbox" id="selectAllCompare" title="Select/deselect all visible" />
+              </th>
+              <th class="col-model sortable" data-col="display_name" data-type="string">
+                Model <span class="sort-icon"></span>
+              </th>
+              <th class="col-family sortable" data-col="family" data-type="string">
+                Family <span class="sort-icon"></span>
+              </th>
+              <th class="col-size sortable" data-col="parameter_size_b" data-type="number">
+                Size <span class="sort-icon"></span>
+              </th>
+              {% for key in benchmark_keys %}
+              <th class="col-bench sortable" data-col="benchmark_{{ key }}" data-type="number">
+                {{ key | upper }} <span class="sort-icon"></span>
+              </th>
+              {% endfor %}
+              <th class="col-cost cost-col" id="costColHeader">
+                API Cost
+                <span class="cost-unit">(per 1M tok)</span>
+              </th>
+              <th class="col-gpu cost-col" id="gpuColHeader">
+                Self-host
+                <span class="cost-unit">(USD/hr)</span>
+              </th>
+              <th class="col-license sortable" data-col="license" data-type="string">
+                License <span class="sort-icon"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="benchTableBody">
+            <!-- Rows rendered by JavaScript from initial data below -->
+          </tbody>
+        </table>
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-icon">&#128202;</div>
+          <p>No models match the current filters.</p>
+          <button class="btn btn-ghost" id="emptyStateClearBtn">Clear filters</button>
+        </div>
+      </div>
+
+      <!-- Pagination / summary footer -->
+      <div class="table-footer">
+        <span id="tableFooterText"></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================================================================
+       RADAR CHART MODAL
+  ================================================================ -->
+  <div class="modal-backdrop hidden" id="chartModal" role="dialog" aria-modal="true" aria-labelledby="chartModalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="chartModalTitle">Radar Benchmark Comparison</h2>
+        <button class="modal-close" id="closeChartModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="chart-container">
+          <canvas id="radarChart" width="500" height="500"></canvas>
+        </div>
+        <div class="chart-legend" id="chartLegend"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="closeChartModalFooter">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       PRICING DETAIL MODAL
+  ================================================================ -->
+  <div class="modal-backdrop hidden" id="pricingModal" role="dialog" aria-modal="true" aria-labelledby="pricingModalTitle">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h2 id="pricingModalTitle">Pricing Detail</h2>
+        <button class="modal-close" id="closePricingModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" id="pricingModalBody">
+        <div class="pricing-loading">Loading pricing data…</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="closePricingModalFooter">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       INITIAL DATA (passed from Flask as JSON)
+  ================================================================ -->
+  <script id="initialData" type="application/json">
+    {{ models | tojson }}
+  </script>
+  <script id="filterOptionsData" type="application/json">
+    {{ filter_options | tojson }}
+  </script>
+  <script id="benchmarkKeysData" type="application/json">
+    {{ benchmark_keys | tojson }}
+  </script>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
